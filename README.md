@@ -40,12 +40,30 @@ ClickUp hook to auto-prepend ClickUp task ID for ClickUp<>GitHub integration htt
 Manually adding this hook to all your projects is boring and not very DRY. Luckily, applying this globally is easily done by modifying your global git configuration to use a template:
 
 Please find steps below - 
-- Firstly, create a git templates directory with - `mkdir -p ~/.git-templates`
-- Set up a git template directory using the git config command - `git config --global init.templatedir '~/.git-templates' 
-- Then create the hooks directory for global hooks in your template folder:- mkdir -p ~/.git-templates/hooks 
-- Afterwards, copy your hooks into this newly created directory and ensure permissions are correctly set on the file with `chmod a+x ~/.git-templates/hooks/prepare-commit-msg`
+- Firstly, create a git templates directory with
+```bash
+mkdir -p ~/.git-templates
+```
+
+- Set up a git template directory using the git config command
+```bash
+git config --global init.templatedir '~/.git-templates
+```
+
+- Then create the hooks directory for global hooks in your template folder:
+```bash
+mkdir -p ~/.git-templates/hooks 
+```
+- Afterwards, copy your hooks into this newly created directory and ensure permissions are correctly set on the file with 
+```
+bashchmod a+x ~/.git-templates/hooks/prepare-commit-msg
+```
 - Done! Now whenever you run git commit, it will prepend the first segments of the branch to the commit message! 
-- For existing projects, you just need to reinit the git directory (don’t worry, it won’t break anything!) by running the following in the project root directory: `git init`
+- For existing projects, you just need to reinit the git directory (don’t worry, it won’t break anything!) by running the following in the project root directory: 
+```bash
+cd [TO_YOUR_REPS_PATH]
+git init
+```
 - :boom:
 
 
